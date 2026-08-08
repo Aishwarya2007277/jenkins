@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula Con 2026 - Event Registration</title>
+  <!-- Outfit Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Decorative Background Glow Nodes -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="32" height="32" class="logo-svg">
+          <path d="M12 2L2 22h20L12 2zm0 4l6.5 13H5.5L12 6z" fill="url(#logoGrad)" />
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a855f7" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">NEBULA CON 2026</span>
+      </div>
+      <h1>Event Registration Portal</h1>
+      <p class="subtitle">Secure your presence at the next frontier of developers and innovators</p>
+    </header>
+
+    <main class="app-main">
+      <!-- Section 1: Registration Form -->
+      <section class="card form-section">
+        <div class="card-header">
+          <div class="card-title-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h2>Registration Details</h2>
+        </div>
+        
+        <form id="registrationForm" novalidate>
+          <div class="form-grid">
+            <!-- First Name -->
+            <div class="input-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required placeholder="e.g. Sai">
+              <span class="error-msg">First name is required</span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="input-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required placeholder="e.g. Sai">
+              <span class="error-msg">Last name is required</span>
+            </div>
+
+            <!-- Username -->
+            <div class="input-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required placeholder="e.g. sai_dev">
+              <span class="error-msg">Username is required</span>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+              <label for="password">Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="password" name="password" required placeholder="••••••••">
+                <button type="button" id="togglePassword" class="toggle-btn" aria-label="Toggle Password Visibility">
+                  <svg id="eyeIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Eye outline icon -->
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <span class="error-msg">Password must be at least 4 characters</span>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="input-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" required>
+              <span class="error-msg">Please select a valid date of birth</span>
+            </div>
+
+            <!-- Mobile -->
+            <div class="input-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" name="mobile" required placeholder="e.g. 234567" pattern="[0-9]+">
+              <span class="error-msg">Please enter a valid mobile number</span>
+            </div>
+
+            <!-- PIN Code -->
+            <div class="input-group">
+              <label for="pinCode">PIN Code</label>
+              <input type="text" id="pinCode" name="pinCode" required placeholder="e.g. 501141" pattern="[0-9]{6}">
+              <span class="error-msg">Please enter a 6-digit PIN code</span>
+            </div>
+
+            <!-- Gender -->
+            <div class="input-group">
+              <label>Gender</label>
+              <div class="gender-radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Male" checked>
+                  <span class="radio-custom"></span>
+                  <span class="label-text">Male</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Female">
+                  <span class="radio-custom"></span>
+                  <span class="label-text">Female</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Other">
+                  <span class="radio-custom"></span>
+                  <span class="label-text">Other</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="input-group full-width">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" required placeholder="e.g. Vikarabad District" rows="3"></textarea>
+              <span class="error-msg">Address is required</span>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span>Register User</span>
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+              </svg>
+            </button>
+            <button type="button" id="clearBtn" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Section 2: Registered Users (Horizontal Display) -->
+      <section class="registered-section">
+        <div class="section-header">
+          <div class="title-with-badge">
+            <h2>Registered Users</h2>
+            <span id="userCount" class="badge">0</span>
+          </div>
+          <button id="clearAllBtn" class="btn btn-danger-link" style="display: none;">Clear All Database</button>
+        </div>
+
+        <!-- Horizontal Scroll Wrapper -->
+        <div class="users-horizontal-container" id="usersContainer">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/>
+              </svg>
+            </div>
+            <p>No registered users found. Fill out the form above to register the first attendee.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer-bar">
+      <p>&copy; 2026 Nebula Con. All Rights Reserved. Built with Premium Glassmorphism.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
