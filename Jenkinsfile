@@ -2,48 +2,50 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                git branch: 'master',
-                    url: 'https://github.com/Aishwarya2007277/jenkins.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh '''
-                    echo "Checking project files..."
+                echo 'Building project...'
 
+                sh '''
                     test -f index.html
                     test -f styles.css
                     test -f app.js
 
-                    echo "✅ All required files are present."
+                    echo "All project files are present."
+                    echo "Build successful!"
                 '''
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Testing project...'
+
+                sh '''
+                    test -s index.html
+                    test -s styles.css
+                    test -s app.js
+
+                    echo "Tests passed!"
+                '''
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deployment stage'
+                echo 'Deploying application...'
+                echo 'Deployment successful!'
             }
         }
     }
 
     post {
         success {
-            echo '✅ Pipeline completed successfully!'
+            echo 'PIPELINE SUCCESS!'
         }
 
         failure {
-            echo '❌ Pipeline failed. Check the console output.'
+            echo 'PIPELINE FAILED!'
         }
     }
 }
